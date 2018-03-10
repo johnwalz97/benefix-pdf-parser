@@ -40,7 +40,7 @@ settings = {
 	 - Accept a single JSON file. E.g. `./extract_info.py --settings settings.json` where `settings.json` contains something like the following:
 	 ```json
 	{
-		settings: {
+		"settings": {
 			"xlsx_filename": "BeneFix Small Group Plans.xlsx",
 			"xlsx_sheetname": "Blank Upload Template",
 			"pdfs": [
