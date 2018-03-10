@@ -197,10 +197,11 @@ def add_line_to_csv(csv, values):
     """
     new_line = ""
     for value in values:
-        new_line = new_line + "," + value
+        new_line = new_line + "," + str(value)
     new_line = new_line[1:]
 
     csv.write(new_line) 
+    csv.write("\n")
 
 def xlsx_to_csv(xlsx_filename, xlsx_sheetname):
     """
@@ -256,12 +257,7 @@ def main(settings):
     log("Writing to CSV")
     with open(csv_filename, 'a') as csv:
         for line in lines:
-            new_row = ""
-            for elem in line:
-                new_row  = new_row + "," + str(elem)
-            new_row = new_row[1:]
-            csv.write(new_row)
-            csv.write("\n")
+            add_line_to_csv(csv, line)
     
     log("Converting from CSV to XLSX")
     csv_to_xlsx(csv_filename, settings["xlsx_filename"], settings["xlsx_sheetname"])
